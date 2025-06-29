@@ -8,8 +8,15 @@
 
 ![Image](https://github.com/user-attachments/assets/ecc35fe6-5950-4501-9293-8b179ff1c5e5)
 
-📂 project-root                                                                                                                                                                                                                                                           ├── 📂 static                                                                                                                                                                                                                                                             
- │   └──   🎨 style.css                                                                                                                                                                                                                                                     │                                                                                                                                                                                                                                     
-├── 📂 templates                                                                                                                                                                                                                                                          
- │   └── 🧾 index.html                                                                                                                                                                                                                                                     
-└── 🐍 app.py                                                                                                                                                                                                                                                              
+```plaintext
+📂 flask to do list
+│
+├── 📂 static
+│   └── 🎨 style.css
+│ 
+├── 📂 templates
+│   └── 🧾 index.html
+│ 
+└── 🐍 app.py
+```
+
