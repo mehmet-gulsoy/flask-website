@@ -7,3 +7,11 @@
 ![Image](https://github.com/user-attachments/assets/3ed4c0f9-e4d4-47bc-98df-50d3b649b59e)
 
 ![Image](https://github.com/user-attachments/assets/ecc35fe6-5950-4501-9293-8b179ff1c5e5)
+
+├── static/css 
+│           └── style.css 
+│    
+├── templates
+│           └── index.html 
+│  
+└── app.py 
