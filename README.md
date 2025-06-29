@@ -9,9 +9,9 @@
 ![Image](https://github.com/user-attachments/assets/ecc35fe6-5950-4501-9293-8b179ff1c5e5)
 
 ```plaintext
-📂 flask to do list
+📂 flask to-do list
 │
-├── 📂 static
+├── 📂 static/css
 │   └── 🎨 style.css
 │ 
 ├── 📂 templates
