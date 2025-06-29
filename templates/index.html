@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapılacaklar Listesi</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <h1 class="big-title">
+        <span class="top-title">Çevrimiçi Yapılacaklar</span><br>
+        <span class="bottom-title">Listem</span>
+    </h1>
+    <br><br>
+
+    <div class="container">
+        <form action="/add" method="POST" class="todo-formu">
+            <div class="input-wrapper">
+                <input type="text" name="todo" placeholder="Yeni bir görev eklemek için tıklayın..." required>
+                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="container2">
+    <ul>
+    {% for todo in todos %}
+        <li class="{{ 'done' if todo.done else '' }}">
+            <a href="/delete/{{ loop.index0 }}" class="delete-btn" title="Sil">
+                <i class="fa fa-trash"></i> 
+            </a>
+
+            <form action="/edit/{{ loop.index0 }}" method="POST">
+                <input 
+                    type="text" 
+                    name="task" 
+                    value="{{ todo.task }}" 
+                    {% if todo.done %}disabled{% endif %}  
+                />
+                <button type="submit"></button>
+            </form>
+
+            <a href="/toggle/{{ loop.index0 }}" class="toggle-btn" title="{{ 'Tamamlandı olarak işaretle' if not todo.done else 'Geri al' }}">
+                {% if todo.done %}
+                    <i class="fa fa-undo"></i> 
+                {% else %}
+                    <i class="fa fa-check"></i>
+                {% endif %}
+            </a>
+        </li>
+    {% else %}
+        <li>Henüz görev eklemediniz.</li>
+    {% endfor %}
+    </ul>
+    </div> 
+    <div class="task-summary">
+        <p> Yapılacak Görevler: <strong>{{ todos|selectattr('done', 'equalto', False)|list|length }}</strong></p>
+        <p> Tamamlanan Görevler: <strong>{{ todos|selectattr('done', 'equalto', True)|list|length }}</strong></p>
+    </div>
+</body>
+</html>
